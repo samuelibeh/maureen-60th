@@ -772,7 +772,7 @@ export default function Maureen60th() {
 
       {/* NAV */}
       <nav>
-        <div className="nav-logo">Maureen · 60</div>
+        <div className="nav-logo">Maureen Ben-Ibeh · 60</div>
         <ul className="nav-links">
           <li><a href="#details">The Event</a></li>
           <li><a href="#rsvp">RSVP</a></li>
@@ -785,7 +785,7 @@ export default function Maureen60th() {
         <div className="hero-bg" />
         <div className="hero-rule" />
         <span className="hero-eyebrow">You are cordially invited to celebrate</span>
-        <h1 className="hero-name gold-shimmer">Maureen&apos;s</h1>
+        <h1 className="hero-name gold-shimmer">Maureen Ben-Ibeh&apos;s</h1>
         <div className="hero-sixty">
           60<sup style={{ fontSize: '0.5em', verticalAlign: 'super' }}>th</sup> Birthday
         </div>
@@ -902,7 +902,7 @@ export default function Maureen60th() {
             <h2 className="section-title">Reserve Your Seat</h2>
             <div className="section-rule" style={{ margin: '0 auto 2rem' }} />
             <p style={{ color: 'var(--white-dim)', lineHeight: 1.8, maxWidth: 480, margin: '0 auto' }}>
-              Please complete the form below to confirm your attendance at Maureen&apos;s 60th birthday celebration.
+              Please complete the form below to confirm your attendance at Maureen Ben-Ibeh&apos;s 60th birthday celebration.
             </p>
           </div>
 
@@ -948,7 +948,7 @@ export default function Maureen60th() {
               <span className="success-icon">✦</span>
               <h3>You&apos;re confirmed!</h3>
               <p>
-                Check your email — your personal QR code is on its way.<br />
+                Check your email — your access card has been sent.<br />
                 Bring it on the day (printed or on your phone) to gain entry.<br /><br />
                 Dress code: <strong style={{ color: 'var(--gold)' }}>White</strong>.
               </p>
@@ -1008,7 +1008,7 @@ export default function Maureen60th() {
 
       {/* FOOTER */}
       <footer>
-        <div className="footer-logo">Maureen · 60th</div>
+        <div className="footer-logo">Maureen Ben-Ibeh · 60th</div>
         <div className="footer-copy">9 May 2026 · Ikeja, Lagos · Dress Code: White</div>
         <ul className="footer-links">
           <li><a href="#hero">Top</a></li>

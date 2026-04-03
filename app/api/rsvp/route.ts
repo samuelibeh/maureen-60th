@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
     await transporter.sendMail({
       from: `"Maureen's 60th" <${process.env.EMAIL_USER}>`,
       to: email,
-      subject: "Your Access Card — Maureen's 60th Birthday 🎉",
+      subject: "Your Access Card — Maureen Ben-Ibeh's 60th Birthday 🎉",
       html: `
 <!DOCTYPE html>
 <html lang="en">

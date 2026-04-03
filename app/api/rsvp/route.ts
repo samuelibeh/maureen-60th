@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
 
       <div style="background:#c9a84c;display:inline-block;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.2em;padding:4px 14px;margin-bottom:10px;text-transform:uppercase;">ACCESS CARD</div>
 
-      <p style="margin:0 0 2px;font-size:34px;font-weight:900;letter-spacing:0.06em;color:#1a1a1a;text-transform:uppercase;font-style:italic;line-height:1;">MAUREEN</p>
+      <p style="margin:0 0 2px;font-size:28px;font-weight:900;letter-spacing:0.06em;color:#1a1a1a;text-transform:uppercase;font-style:italic;line-height:1;">MAUREEN BEN-IBEH</p>
 
       <div style="text-align:center;line-height:1;margin:2px 0 10px;">
         <span style="font-size:34px;font-weight:900;color:#c9a84c;vertical-align:super;">@</span><span style="font-size:100px;font-weight:900;color:#1a1a1a;letter-spacing:-4px;">60</span>

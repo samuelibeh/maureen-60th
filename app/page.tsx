@@ -302,7 +302,7 @@ export default function Maureen60th() {
         }
         .hero-name {
           font-family: 'Cormorant Garamond', serif;
-          font-size: clamp(5rem, 14vw, 13rem);
+          font-size: clamp(2.3rem, 8vw, 7rem);
           font-weight: 300;
           font-style: italic;
           line-height: 0.9;
@@ -785,7 +785,7 @@ export default function Maureen60th() {
         <div className="hero-bg" />
         <div className="hero-rule" />
         <span className="hero-eyebrow">You are cordially invited to celebrate</span>
-        <h1 className="hero-name gold-shimmer">Maureen Ben-Ibeh&apos;s</h1>
+        <h1 className="hero-name" style={{ color: 'var(--gold)' }}>Maureen Ben-Ibeh&apos;s</h1>
         <div className="hero-sixty">
           60<sup style={{ fontSize: '0.5em', verticalAlign: 'super' }}>th</sup> Birthday
         </div>

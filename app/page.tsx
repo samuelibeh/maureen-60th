@@ -178,7 +178,7 @@ _Celebrating the Goodness of God_`
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: rsvpEmail }),
           });
-          window.location.href = `https://wa.me/${phone}?text=${msg}`;
+          window.location.href = `whatsapp://send?phone=${phone}&text=${msg}`;
           return 0;
         }
         return prev - 1;

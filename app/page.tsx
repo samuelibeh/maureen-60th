@@ -169,7 +169,7 @@ You are cordially invited to celebrate six decades of grace, love & radiant livi
 📍 *Venue:* NAFOWA Children's Park, Sam Ethan Airforce Base, Ikeja, Lagos
 👗 *Dress Code:* All White
 
-─────────────────────────
+-------------------------
 🎫 *YOUR ACCESS CARD*
 Your personal access card has been sent to:
 ${rsvpEmail}
@@ -177,7 +177,7 @@ ${rsvpEmail}
 Present it at the entrance on the day — printed or on your phone.
 
 ⚠️ NO ACCESS CARD, NO ENTRY
-─────────────────────────
+-------------------------
 
 _Celebrating the Goodness of God_ 🙏`
           );

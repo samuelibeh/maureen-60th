@@ -55,7 +55,7 @@ export default function Maureen60th() {
   const [rsvpError, setRsvpError] = useState('');
   const [rsvpEmail, setRsvpEmail] = useState('');
   const [rsvpPhone, setRsvpPhone] = useState('');
-  const [whatsappCountdown, setWhatsappCountdown] = useState(4);
+  const [whatsappCountdown, setWhatsappCountdown] = useState(5);
   const [loadingPhrase, setLoadingPhrase] = useState(LOADING_PHRASES[0]);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>({});
@@ -154,7 +154,7 @@ export default function Maureen60th() {
   // WhatsApp redirect countdown
   useEffect(() => {
     if (!rsvpSubmitted || !rsvpPhone) return;
-    setWhatsappCountdown(4);
+    setWhatsappCountdown(5);
     const interval = setInterval(() => {
       setWhatsappCountdown(prev => {
         if (prev <= 1) {

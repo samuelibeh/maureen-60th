@@ -187,7 +187,7 @@ _Celebrating the Goodness of God_ 🙏`
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: rsvpEmail }),
           });
-          window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+          window.location.href = `https://wa.me/${phone}?text=${msg}`;
           return 0;
         }
         return prev - 1;

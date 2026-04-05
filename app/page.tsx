@@ -160,26 +160,17 @@ export default function Maureen60th() {
         if (prev <= 1) {
           clearInterval(interval);
           const msg = encodeURIComponent(
-`✨ *MAUREEN BEN-IBEH'S 60TH BIRTHDAY* ✨
+`*MAUREEN BEN-IBEH'S 60TH BIRTHDAY*
 
-You are cordially invited to celebrate six decades of grace, love & radiant living.
+Date: Saturday, 9th May 2026
+Time: 1:00 PM (Doors open 12:30 PM)
+Venue: NAFOWA Children's Park, Ikeja, Lagos
+Dress Code: All White
 
-📅 *Date:* Saturday, 9th May 2026
-🕐 *Time:* 1:00 PM (Doors open 12:30 PM)
-📍 *Venue:* NAFOWA Children's Park, Sam Ethan Airforce Base, Ikeja, Lagos
-👗 *Dress Code:* All White
+Your access card was sent to ${rsvpEmail}
+Show it at the entrance. NO CARD, NO ENTRY.
 
--------------------------
-🎫 *YOUR ACCESS CARD*
-Your personal access card has been sent to:
-${rsvpEmail}
-
-Present it at the entrance on the day — printed or on your phone.
-
-⚠️ NO ACCESS CARD, NO ENTRY
--------------------------
-
-_Celebrating the Goodness of God_ 🙏`
+_Celebrating the Goodness of God_`
           );
           const phone = rsvpPhone.replace(/\D/g, '');
           fetch('/api/whatsapp-redirect', {

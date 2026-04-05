@@ -53,6 +53,9 @@ export default function Maureen60th() {
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
   const [rsvpLoading, setRsvpLoading] = useState(false);
   const [rsvpError, setRsvpError] = useState('');
+  const [rsvpEmail, setRsvpEmail] = useState('');
+  const [rsvpPhone, setRsvpPhone] = useState('');
+  const [whatsappCountdown, setWhatsappCountdown] = useState(4);
   const [loadingPhrase, setLoadingPhrase] = useState(LOADING_PHRASES[0]);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>({});
@@ -148,6 +151,51 @@ export default function Maureen60th() {
     return () => observer.disconnect();
   }, []);
 
+  // WhatsApp redirect countdown
+  useEffect(() => {
+    if (!rsvpSubmitted || !rsvpPhone) return;
+    setWhatsappCountdown(4);
+    const interval = setInterval(() => {
+      setWhatsappCountdown(prev => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          const msg = encodeURIComponent(
+`✨ *MAUREEN BEN-IBEH'S 60TH BIRTHDAY* ✨
+
+You are cordially invited to celebrate six decades of grace, love & radiant living.
+
+📅 *Date:* Saturday, 9th May 2026
+🕐 *Time:* 1:00 PM (Doors open 12:30 PM)
+📍 *Venue:* NAFOWA Children's Park, Sam Ethan Airforce Base, Ikeja, Lagos
+👗 *Dress Code:* All White
+
+─────────────────────────
+🎫 *YOUR ACCESS CARD*
+Your personal access card has been sent to:
+${rsvpEmail}
+
+Present it at the entrance on the day — printed or on your phone.
+
+⚠️ NO ACCESS CARD, NO ENTRY
+─────────────────────────
+
+_Celebrating the Goodness of God_ 🙏`
+          );
+          const phone = rsvpPhone.replace(/\D/g, '');
+          fetch('/api/whatsapp-redirect', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: rsvpEmail }),
+          });
+          window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [rsvpSubmitted, rsvpPhone, rsvpEmail]);
+
   // Fetch guest messages from DB
   const fetchMessages = useCallback(async () => {
     try {
@@ -190,6 +238,8 @@ export default function Maureen60th() {
         const err = await res.json();
         setRsvpError(err.error || 'Something went wrong. Please try again.');
       } else {
+        setRsvpEmail(data.email);
+        setRsvpPhone(data.phone);
         setRsvpSubmitted(true);
       }
     } catch {
@@ -902,7 +952,8 @@ export default function Maureen60th() {
             <h2 className="section-title">Reserve Your Seat</h2>
             <div className="section-rule" style={{ margin: '0 auto 2rem' }} />
             <p style={{ color: 'var(--white-dim)', lineHeight: 1.8, maxWidth: 480, margin: '0 auto' }}>
-              Please complete the form below to confirm your attendance at Maureen Ben-Ibeh&apos;s 60th birthday celebration.
+              Please complete the form below to confirm your attendance at Maureen Ben-Ibeh&apos;s 60th birthday celebration.<br />
+              <span style={{ fontSize: '0.85rem', color: 'var(--gold)', fontStyle: 'italic' }}>Your access card will be sent to your email. Add your WhatsApp number to also save your event details on WhatsApp.</span>
             </p>
           </div>
 
@@ -924,7 +975,7 @@ export default function Maureen60th() {
                   <input name="email" type="email" placeholder="your@email.com" required />
                 </div>
                 <div className="form-group">
-                  <label>Phone Number</label>
+                  <label>WhatsApp Number (Optional)</label>
                   <input name="phone" type="tel" placeholder="+234 000 000 0000" />
                 </div>
               </div>
@@ -948,10 +999,17 @@ export default function Maureen60th() {
               <span className="success-icon">✦</span>
               <h3>You&apos;re confirmed!</h3>
               <p>
-                Check your email — your access card has been sent.<br />
+                Your access card has been sent to <strong style={{ color: 'var(--gold)' }}>{rsvpEmail}</strong>.<br />
                 Bring it on the day (printed or on your phone) to gain entry.<br /><br />
                 Dress code: <strong style={{ color: 'var(--gold)' }}>White</strong>.
               </p>
+              {rsvpPhone && (
+                <p style={{ marginTop: '1rem', color: 'var(--gold)', fontFamily: "'Cinzel', serif", fontSize: '0.7rem', letterSpacing: '0.2em' }}>
+                  {whatsappCountdown > 0
+                    ? `Redirecting to WhatsApp in ${whatsappCountdown}...`
+                    : 'Opening WhatsApp...'}
+                </p>
+              )}
             </div>
           )}
         </div>

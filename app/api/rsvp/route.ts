@@ -102,10 +102,11 @@ export async function POST(req: NextRequest) {
     });
   } catch (err) {
     console.error('Email error:', err);
+    await insertRsvp(fullName, email, phone, message, false);
     return NextResponse.json({ error: 'Failed to send confirmation email.' }, { status: 500 });
   }
 
-  await insertRsvp(fullName, email, phone, message);
+  await insertRsvp(fullName, email, phone, message, true);
 
   console.log(`RSVP saved: ${fullName} | ${email}`);
   return NextResponse.json({ ok: true });

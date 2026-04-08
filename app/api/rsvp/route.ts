@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error('Email error:', err);
     await insertRsvp(fullName, email, phone, message, false);
-    return NextResponse.json({ error: 'Failed to send confirmation email.' }, { status: 500 });
+    return NextResponse.json({ error: 'Your registration is complete! Your details have been saved and your access card has been sent to your WhatsApp.' }, { status: 500 });
   }
 
   await insertRsvp(fullName, email, phone, message, true);

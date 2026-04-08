@@ -84,8 +84,8 @@ export async function POST(req: NextRequest) {
       <div style="position:absolute;left:-20px;bottom:-20px;width:110px;height:110px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);"></div>
       <div style="position:absolute;left:20px;bottom:20px;width:60px;height:60px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);"></div>
 
-      <h2 style="margin:0 0 3px;font-size:24px;font-weight:900;color:#fff;letter-spacing:0.04em;text-transform:uppercase;">THIS CARD ADMITS ONE</h2>
-      <p style="margin:0 0 12px;font-size:12px;font-weight:700;color:#1a1a1a;letter-spacing:0.08em;text-transform:uppercase;">NO ACCESS CARD, NO ENTRY</p>
+      <h2 style="margin:0 0 3px;font-size:24px;font-weight:900;color:#fff;letter-spacing:0.04em;text-transform:uppercase;">YOU ARE CONFIRMED</h2>
+      <p style="margin:0 0 12px;font-size:12px;font-weight:700;color:#1a1a1a;letter-spacing:0.08em;text-transform:uppercase;">WE LOOK FORWARD TO CELEBRATING WITH YOU</p>
 
       <p style="margin:0 0 1px;font-size:9px;font-weight:700;letter-spacing:0.2em;color:#fff;text-transform:uppercase;">Admitted Guest</p>
       <p style="margin:0 0 12px;font-size:17px;font-weight:900;color:#1a1a1a;text-transform:uppercase;">${fullName}</p>

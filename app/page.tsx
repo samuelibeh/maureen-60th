@@ -55,7 +55,6 @@ export default function Maureen60th() {
   const [rsvpError, setRsvpError] = useState('');
   const [rsvpEmail, setRsvpEmail] = useState('');
   const [rsvpPhone, setRsvpPhone] = useState('');
-  const [whatsappCountdown, setWhatsappCountdown] = useState(5);
   const [loadingPhrase, setLoadingPhrase] = useState(LOADING_PHRASES[0]);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>({});
@@ -151,41 +150,6 @@ export default function Maureen60th() {
     return () => observer.disconnect();
   }, []);
 
-  // WhatsApp redirect countdown
-  useEffect(() => {
-    if (!rsvpSubmitted || !rsvpPhone) return;
-    setWhatsappCountdown(5);
-    const interval = setInterval(() => {
-      setWhatsappCountdown(prev => {
-        if (prev <= 1) {
-          clearInterval(interval);
-          const msg = encodeURIComponent(
-`*MAUREEN BEN-IBEH'S 60TH BIRTHDAY*
-
-Date: Saturday, 9th May 2026
-Time: 1:00 PM (Doors open 12:30 PM)
-Venue: NAFOWA Children's Park, Ikeja, Lagos
-Dress Code: All White
-
-Your access card was sent to ${rsvpEmail}
-Show it at the entrance. NO CARD, NO ENTRY.
-
-_Celebrating the Goodness of God_`
-          );
-          const phone = rsvpPhone.replace(/\D/g, '');
-          fetch('/api/whatsapp-redirect', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: rsvpEmail }),
-          });
-          window.location.href = `whatsapp://send?phone=${phone}&text=${msg}`;
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [rsvpSubmitted, rsvpPhone, rsvpEmail]);
 
   // Fetch guest messages from DB
   const fetchMessages = useCallback(async () => {
@@ -944,7 +908,7 @@ _Celebrating the Goodness of God_`
             <div className="section-rule" style={{ margin: '0 auto 2rem' }} />
             <p style={{ color: 'var(--white-dim)', lineHeight: 1.8, maxWidth: 480, margin: '0 auto' }}>
               Please complete the form below to confirm your attendance at Maureen Ben-Ibeh&apos;s 60th birthday celebration.<br />
-              <span style={{ fontSize: '0.85rem', color: 'var(--gold)', fontStyle: 'italic' }}>Your access card will be sent to your email. Add your WhatsApp number to also save your event details on WhatsApp.</span>
+              <span style={{ fontSize: '0.85rem', color: 'var(--gold)', fontStyle: 'italic' }}>Your access card will be sent to your email. (Note: The card is not strictly required for attendance).</span>
             </p>
           </div>
 
@@ -966,7 +930,7 @@ _Celebrating the Goodness of God_`
                   <input name="email" type="email" placeholder="your@email.com" required />
                 </div>
                 <div className="form-group">
-                  <label>WhatsApp Number (Optional)</label>
+                  <label>Phone Number</label>
                   <input name="phone" type="tel" placeholder="+234 000 000 0000" />
                 </div>
               </div>
@@ -991,16 +955,9 @@ _Celebrating the Goodness of God_`
               <h3>You&apos;re confirmed!</h3>
               <p>
                 Your access card has been sent to <strong style={{ color: 'var(--gold)' }}>{rsvpEmail}</strong>.<br />
-                Bring it on the day (printed or on your phone) to gain entry.<br /><br />
+                While the card is a beautiful memento, you do not need to present it to gain entry.<br /><br />
                 Dress code: <strong style={{ color: 'var(--gold)' }}>White</strong>.
               </p>
-              {rsvpPhone && (
-                <p style={{ marginTop: '1rem', color: 'var(--gold)', fontFamily: "'Cinzel', serif", fontSize: '0.7rem', letterSpacing: '0.2em' }}>
-                  {whatsappCountdown > 0
-                    ? `Redirecting to WhatsApp in ${whatsappCountdown}...`
-                    : 'Opening WhatsApp...'}
-                </p>
-              )}
             </div>
           )}
         </div>

@@ -14,14 +14,12 @@ export async function initDb() {
       phone TEXT,
       message TEXT,
       email_sent BOOLEAN DEFAULT FALSE,
-      whatsapp_redirected BOOLEAN DEFAULT FALSE,
       created_at TIMESTAMPTZ DEFAULT NOW()
     );
   `);
 
   // Add columns if table already exists (safe migration)
   await pool.query(`ALTER TABLE rsvps ADD COLUMN IF NOT EXISTS email_sent BOOLEAN DEFAULT FALSE`);
-  await pool.query(`ALTER TABLE rsvps ADD COLUMN IF NOT EXISTS whatsapp_redirected BOOLEAN DEFAULT FALSE`);
 }
 
 export async function emailExists(email: string): Promise<boolean> {
@@ -36,9 +34,6 @@ export async function insertRsvp(fullName: string, email: string, phone: string,
   );
 }
 
-export async function markWhatsappRedirected(email: string) {
-  await pool.query('UPDATE rsvps SET whatsapp_redirected = TRUE WHERE email = $1', [email]);
-}
 
 export async function getMessages(): Promise<{ full_name: string; message: string; created_at: string }[]> {
   const res = await pool.query(

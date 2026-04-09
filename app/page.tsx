@@ -795,6 +795,12 @@ export default function Maureen60th() {
           .form-row { grid-template-columns: 1fr; }
           footer { flex-direction: column; gap: 1.5rem; text-align: center; }
           .dresscode-block { flex-direction: column; text-align: center; }
+
+          .countdown-wrap { gap: 0.3rem; }
+          .countdown-unit { padding: 1rem 0.2rem; }
+          .countdown-num { font-size: 1.5rem; }
+          .countdown-label { font-size: 0.45rem; letter-spacing: 0.1em; margin-top: 0.4rem; }
+          .countdown-sep { font-size: 1.2rem; margin-bottom: 1rem; }
         }
       `}</style>
 
@@ -861,18 +867,22 @@ export default function Maureen60th() {
               <>
                 <div className="countdown-unit">
                   <span className="countdown-num">{countdown.days}</span>
+                  <span className="countdown-label">Days</span>
                 </div>
                 <div className="countdown-sep">·</div>
                 <div className="countdown-unit">
                   <span className="countdown-num">{countdown.hours}</span>
+                  <span className="countdown-label">Hours</span>
                 </div>
                 <div className="countdown-sep">·</div>
                 <div className="countdown-unit">
                   <span className="countdown-num">{countdown.mins}</span>
+                  <span className="countdown-label">Minutes</span>
                 </div>
                 <div className="countdown-sep">·</div>
                 <div className="countdown-unit">
                   <span className="countdown-num">{countdown.secs}</span>
+                  <span className="countdown-label">Seconds</span>
                 </div>
               </>
             )}

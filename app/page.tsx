@@ -993,7 +993,7 @@ export default function Maureen60th() {
               <p>
                 Your access card has been sent to <strong style={{ color: 'var(--gold)' }}>{rsvpEmail}</strong>.<br />
                 It has also been sent to your WhatsApp with a link to this website.<br /><br />
-                While the card is a beautiful memento, you do not need to present it to gain entry.<br /><br />
+
                 Dress code: <strong style={{ color: 'var(--gold)' }}>White</strong>.
               </p>
             </div>

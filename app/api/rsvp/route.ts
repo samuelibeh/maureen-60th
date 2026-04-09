@@ -72,7 +72,7 @@ export async function POST(req: NextRequest) {
             <div style="font-size:8px;letter-spacing:0.15em;color:#888;margin-top:1px;text-transform:uppercase;">Year</div>
           </td>
           <td style="text-align:center;padding:0 6px;">
-            <div style="font-size:20px;font-weight:900;color:#1a1a1a;">1PM</div>
+            <div style="font-size:20px;font-weight:900;color:#1a1a1a;">12PM</div>
             <div style="font-size:8px;letter-spacing:0.15em;color:#888;margin-top:1px;text-transform:uppercase;">Time</div>
           </td>
         </tr>

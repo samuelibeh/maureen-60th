@@ -120,7 +120,7 @@ export default function Maureen60th() {
 
   // Countdown timer
   useEffect(() => {
-    const target = new Date('2026-05-09T13:00:00');
+    const target = new Date('2026-05-09T12:00:00');
     function tick() {
       const diff = target.getTime() - Date.now();
       if (diff <= 0) { setCelebrated(true); return; }
@@ -671,37 +671,62 @@ export default function Maureen60th() {
           color: var(--gold);
         }
         .message-form { max-width: 620px; margin: 3rem auto 0; }
+        .countdown-section {
+          background: linear-gradient(to bottom, var(--black), #0f0e0a, var(--black));
+          padding: 5rem 2rem;
+          text-align: center;
+          border-top: 1px solid rgba(201,168,76,0.1);
+          border-bottom: 1px solid rgba(201,168,76,0.1);
+        }
         .countdown-wrap {
           display: flex;
-          gap: 2rem;
+          gap: clamp(1rem, 4vw, 3rem);
           justify-content: center;
-          margin-top: 4rem;
-          flex-wrap: wrap;
+          align-items: center;
+          flex-wrap: nowrap;
+          max-width: 800px;
+          margin: 0 auto;
         }
-        .countdown-unit { text-align: center; min-width: 80px; }
+        .countdown-unit {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: rgba(250,248,243,0.02);
+          padding: 2rem 1rem;
+          border: 1px solid rgba(201,168,76,0.1);
+          backdrop-filter: blur(10px);
+          position: relative;
+          overflow: hidden;
+        }
+        .countdown-unit::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0; height: 1px;
+          background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
         .countdown-num {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 3.5rem;
-          font-weight: 300;
+          font-family: 'Cinzel', serif;
+          font-size: clamp(2rem, 5vw, 4.5rem);
+          font-weight: 400;
           color: var(--gold);
-          display: block;
           line-height: 1;
+          text-shadow: 0 0 20px rgba(201,168,76,0.3);
         }
         .countdown-label {
           font-family: 'Cinzel', serif;
-          font-size: 0.55rem;
+          font-size: 0.6rem;
           letter-spacing: 0.4em;
           text-transform: uppercase;
           color: var(--white-dim);
-          margin-top: 0.4rem;
-          display: block;
+          margin-top: 1rem;
         }
         .countdown-sep {
           font-family: 'Cormorant Garamond', serif;
-          font-size: 3rem;
-          color: rgba(201,168,76,0.3);
-          align-self: flex-start;
-          padding-top: 0.2rem;
+          font-size: 2.5rem;
+          color: rgba(201,168,76,0.4);
+          font-weight: 300;
+          margin-bottom: 2rem;
         }
         footer {
           border-top: 1px solid rgba(201,168,76,0.15);
@@ -810,7 +835,7 @@ export default function Maureen60th() {
           <div className="hero-date-sep" />
           <div className="hero-date-item">
             <div className="hero-date-label">Time</div>
-            <div className="hero-date-value">1:00 PM</div>
+            <div className="hero-date-value">12:00 PM</div>
           </div>
           <div className="hero-date-sep" />
           <div className="hero-date-item">
@@ -821,35 +846,41 @@ export default function Maureen60th() {
 
         <a href="#rsvp" className="cta-btn">Reserve Your Seat</a>
 
-        {/* Countdown */}
-        <div className="countdown-wrap">
-          {celebrated ? (
-            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.5rem', fontStyle: 'italic', color: 'var(--gold)' }}>
-              The celebration is today! 🎉
-            </p>
-          ) : (
-            <>
-              <div className="countdown-unit">
-                <span className="countdown-num">{countdown.days}</span>
-                <span className="countdown-label">Days</span>
-              </div>
-              <div className="countdown-sep">:</div>
-              <div className="countdown-unit">
-                <span className="countdown-num">{countdown.hours}</span>
-                <span className="countdown-label">Hours</span>
-              </div>
-              <div className="countdown-sep">:</div>
-              <div className="countdown-unit">
-                <span className="countdown-num">{countdown.mins}</span>
-                <span className="countdown-label">Minutes</span>
-              </div>
-              <div className="countdown-sep">:</div>
-              <div className="countdown-unit">
-                <span className="countdown-num">{countdown.secs}</span>
-                <span className="countdown-label">Seconds</span>
-              </div>
-            </>
-          )}
+      </section>
+
+      {/* COUNTDOWN SECTION */}
+      <section className="countdown-section reveal">
+        <div className="section-inner">
+          <span className="section-label" style={{ textAlign: 'center', marginBottom: '3rem' }}>The Celebration Begins In</span>
+          <div className="countdown-wrap">
+            {celebrated ? (
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2rem', fontStyle: 'italic', color: 'var(--gold)', textAlign: 'center', width: '100%' }}>
+                Today is the day! 🎉
+              </p>
+            ) : (
+              <>
+                <div className="countdown-unit">
+                  <span className="countdown-num">{countdown.days}</span>
+                  <span className="countdown-label">Days</span>
+                </div>
+                <div className="countdown-sep">·</div>
+                <div className="countdown-unit">
+                  <span className="countdown-num">{countdown.hours}</span>
+                  <span className="countdown-label">Hours</span>
+                </div>
+                <div className="countdown-sep">·</div>
+                <div className="countdown-unit">
+                  <span className="countdown-num">{countdown.mins}</span>
+                  <span className="countdown-label">Minutes</span>
+                </div>
+                <div className="countdown-sep">·</div>
+                <div className="countdown-unit">
+                  <span className="countdown-num">{countdown.secs}</span>
+                  <span className="countdown-label">Seconds</span>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </section>
 
@@ -874,8 +905,8 @@ export default function Maureen60th() {
             <div className="detail-card">
               <span className="detail-icon">🕐</span>
               <div className="detail-title">Time</div>
-              <div className="detail-value">1:00 PM</div>
-              <div className="detail-sub">Doors open at 12:30 PM</div>
+              <div className="detail-value">12:00 PM</div>
+              <div className="detail-sub">Doors open at 11:30 AM</div>
             </div>
             <div className="detail-card">
               <span className="detail-icon">📍</span>

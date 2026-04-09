@@ -801,6 +801,11 @@ export default function Maureen60th() {
           .countdown-num { font-size: 1.5rem; }
           .countdown-label { font-size: 0.45rem; letter-spacing: 0.1em; margin-top: 0.4rem; }
           .countdown-sep { font-size: 1.2rem; margin-bottom: 1rem; }
+
+          .hero-date-block { gap: 1.5rem; margin-bottom: 2rem; }
+          .hero-date-label { font-size: 0.5rem; letter-spacing: 0.2em; }
+          .hero-date-value { font-size: 1.3rem; }
+          .hero-date-sep { height: 35px; }
         }
       `}</style>
 

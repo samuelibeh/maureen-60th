@@ -861,22 +861,18 @@ export default function Maureen60th() {
               <>
                 <div className="countdown-unit">
                   <span className="countdown-num">{countdown.days}</span>
-                  <span className="countdown-label">Days</span>
                 </div>
                 <div className="countdown-sep">·</div>
                 <div className="countdown-unit">
                   <span className="countdown-num">{countdown.hours}</span>
-                  <span className="countdown-label">Hours</span>
                 </div>
                 <div className="countdown-sep">·</div>
                 <div className="countdown-unit">
                   <span className="countdown-num">{countdown.mins}</span>
-                  <span className="countdown-label">Minutes</span>
                 </div>
                 <div className="countdown-sep">·</div>
                 <div className="countdown-unit">
                   <span className="countdown-num">{countdown.secs}</span>
-                  <span className="countdown-label">Seconds</span>
                 </div>
               </>
             )}

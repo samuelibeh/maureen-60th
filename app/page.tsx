@@ -945,7 +945,7 @@ export default function Maureen60th() {
             <div className="section-rule" style={{ margin: '0 auto 2rem' }} />
             <p style={{ color: 'var(--white-dim)', lineHeight: 1.8, maxWidth: 480, margin: '0 auto' }}>
               Please complete the form below to confirm your attendance at Maureen Ben-Ibeh&apos;s 60th birthday celebration.<br />
-              <span style={{ fontSize: '0.85rem', color: 'var(--gold)', fontStyle: 'italic' }}>Your access card will be sent to your email. (Note: The card is not strictly required for attendance).</span>
+              <span style={{ fontSize: '0.85rem', color: 'var(--gold)', fontStyle: 'italic' }}>Your access card will be sent to your email.</span>
             </p>
           </div>
 
